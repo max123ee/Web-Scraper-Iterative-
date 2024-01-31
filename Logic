@@ -1,0 +1,16 @@
+#Democode
+# Function to process a given URL, find downloadable files, and explore subpages
+def process_url(url, file_links, is_original_url=False):
+    # Check if the URL has already been visited
+    if url in visited_urls:
+        return False
+    # Mark the URL as visited
+    visited_urls.add(url)
+subpages = get_subpages_within_domain(url)
+        for subpage in subpages:
+            found_subpage_files = process_url(subpage, file_links)
+            if found_subpage_files:
+                return True
+# Entry point of the script
+if __name__ == "__main__":
+    main()
